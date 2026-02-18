@@ -1,0 +1,820 @@
+(edif "Line Sorter"
+    (edifVersion 2 0 0)
+    (edifLevel 0)
+    (keywordMap (keywordLevel 0))
+    (status
+        (written
+            (timestamp 2026 02 18 22 27 09.684)
+            (program "Flux" (version "1.0"))
+            (author "Flux")
+        )
+    )
+    (library FluxLibrary
+        (edifLevel 0)
+        (technology (numberDefinition))
+        (cell "Power Net Portal"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P1 (direction inout))
+                )
+            )
+        )
+        (cell "Generic Resistor"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P2 (direction inout))
+                (port P1 (direction inout))
+                )
+            )
+        )
+        (cell Ground
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port GND (direction inout))
+                )
+            )
+        )
+        (cell 1730395
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port 1 (direction inout))
+                (port 2 (direction inout))
+                )
+            )
+        )
+        (cell SS34
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port A (direction inout))
+                (port K (direction inout))
+                )
+            )
+        )
+        (cell SMBJ24A
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port K (direction inout))
+                (port A (direction inout))
+                )
+            )
+        )
+        (cell 0022232031
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port 3 (direction inout))
+                (port 2 (direction inout))
+                (port 1 (direction inout))
+                )
+            )
+        )
+        (cell "X5521WV-2x13-C40D40-1196"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port 18 (direction inout))
+                (port 25 (direction inout))
+                (port 12 (direction inout))
+                (port 21 (direction inout))
+                (port 14 (direction inout))
+                (port 26 (direction inout))
+                (port 5 (direction inout))
+                (port 2 (direction inout))
+                (port 17 (direction inout))
+                (port 20 (direction inout))
+                (port 19 (direction inout))
+                (port 16 (direction inout))
+                (port 1 (direction inout))
+                (port 9 (direction inout))
+                (port 8 (direction inout))
+                (port 7 (direction inout))
+                (port 13 (direction inout))
+                (port 22 (direction inout))
+                (port 10 (direction inout))
+                (port 24 (direction inout))
+                (port 3 (direction inout))
+                (port 4 (direction inout))
+                (port 23 (direction inout))
+                (port 15 (direction inout))
+                (port 11 (direction inout))
+                (port 6 (direction inout))
+                )
+            )
+        )
+        (cell "Generic Capacitor"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P1 (direction inout))
+                (port P2 (direction inout))
+                )
+            )
+        )
+        (cell "2-Position Screw Terminal"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P2 (direction inout))
+                (port P1 (direction inout))
+                )
+            )
+        )
+        (cell AO3400A
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port D (direction inout))
+                (port S (direction inout))
+                (port G (direction inout))
+                )
+            )
+        )
+        (cell "Net Portal"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P1 (direction inout))
+                )
+            )
+        )
+        (cell OPA340UA
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port "-" (direction inout))
+                (port OUTPUT (direction inout))
+                (port NC (direction inout))
+                (port NC (direction inout))
+                (port "V-" (direction inout))
+                (port "V+" (direction inout))
+                (port NC (direction inout))
+                (port "+" (direction inout))
+                )
+            )
+        )
+        (cell TPS54302DDCR
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port BOOT (direction inout))
+                (port SW (direction inout))
+                (port EN (direction inout))
+                (port GND (direction inout))
+                (port VIN (direction inout))
+                (port FB (direction inout))
+                )
+            )
+        )
+        (cell "LM7805CT/NOPB"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port VO (direction inout))
+                (port VI (direction inout))
+                (port GND (direction inout))
+                )
+            )
+        )
+        (cell 05200101Z
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P2 (direction inout))
+                (port P1 (direction inout))
+                )
+            )
+        )
+        (cell "Generic Inductor"
+            (cellType generic)
+            (view schematic
+                (viewType schematic)
+                (interface
+                    (port P2 (direction inout))
+                (port P1 (direction inout))
+                )
+            )
+        )
+    )
+    
+    (library Main
+            (edifLevel 0)
+            (technology (numberDefinition))
+            (cell "Line Sorter_top"
+                (cellType generic)
+                (view schematic
+                    (viewType schematic)
+                    (interface)
+                    (contents
+                        (instance "Pin 10"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "24 V AC"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R41
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "0a8c98d5-f2cf-4857-bfea-08c8fcabc949"
+                (viewRef schematic (cellRef Ground (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance J13
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance R34
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R18
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance J9
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance R30
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R26
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R35
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance J20
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance D14
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance J11
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance D2
+                (viewRef schematic (cellRef SMBJ24A (libraryRef FluxLibrary)))
+            )
+                        (instance R28
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R40
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R25
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R12
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance J15
+                (viewRef schematic (cellRef 0022232031 (libraryRef FluxLibrary)))
+            )
+                        (instance U1
+                (viewRef schematic (cellRef "X5521WV-2x13-C40D40-1196" (libraryRef FluxLibrary)))
+            )
+                        (instance C2
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance J12
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance J1
+                (viewRef schematic (cellRef "2-Position Screw Terminal" (libraryRef FluxLibrary)))
+            )
+                        (instance C8
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance J10
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance "9 V DC"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R11
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance Up
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance R37
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R27
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance "512b48be-66b7-4267-bc97-f4cbbfcc8f5a"
+                (viewRef schematic (cellRef Ground (libraryRef FluxLibrary)))
+            )
+                        (instance R39
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance D8
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance "24 V DC"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance C5
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance Q7
+                (viewRef schematic (cellRef AO3400A (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 9"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Op-Amp to Pin 8"
+                (viewRef schematic (cellRef "Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R6
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance C7
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance R33
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R32
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R2
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 7"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance J4
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "24 V AC"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R1
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance D1
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 11"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance U3
+                (viewRef schematic (cellRef OPA340UA (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance U2
+                (viewRef schematic (cellRef TPS54302DDCR (libraryRef FluxLibrary)))
+            )
+                        (instance D15
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance D17
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 11"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R23
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance U5
+                (viewRef schematic (cellRef "LM7805CT/NOPB" (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 9"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance Q6
+                (viewRef schematic (cellRef AO3400A (libraryRef FluxLibrary)))
+            )
+                        (instance R36
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance J18
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance Q8
+                (viewRef schematic (cellRef AO3400A (libraryRef FluxLibrary)))
+            )
+                        (instance Down
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance J3
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance R29
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance D9
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 10"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance Q9
+                (viewRef schematic (cellRef AO3400A (libraryRef FluxLibrary)))
+            )
+                        (instance Q1
+                (viewRef schematic (cellRef AO3400A (libraryRef FluxLibrary)))
+            )
+                        (instance D16
+                (viewRef schematic (cellRef SS34 (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R17
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance R31
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance F1
+                (viewRef schematic (cellRef 05200101Z (libraryRef FluxLibrary)))
+            )
+                        (instance "eed38bc3-7058-4aa7-8fae-e224e5c3fff8"
+                (viewRef schematic (cellRef Ground (libraryRef FluxLibrary)))
+            )
+                        (instance J2
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance L1
+                (viewRef schematic (cellRef "Generic Inductor" (libraryRef FluxLibrary)))
+            )
+                        (instance C9
+                (viewRef schematic (cellRef "Generic Capacitor" (libraryRef FluxLibrary)))
+            )
+                        (instance "Pin 7"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance R24
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance "Op-Amp to Pin 8"
+                (viewRef schematic (cellRef "Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance "Ground Rail"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (instance J19
+                (viewRef schematic (cellRef 1730395 (libraryRef FluxLibrary)))
+            )
+                        (instance R38
+                (viewRef schematic (cellRef "Generic Resistor" (libraryRef FluxLibrary)))
+            )
+                        (instance "5 V DC"
+                (viewRef schematic (cellRef "Power Net Portal" (libraryRef FluxLibrary)))
+            )
+                        (Net "Net 15"
+                            (joined (portRef 2 (instanceRef J10))
+                            (portRef D (instanceRef Q6)))
+                        )
+                        (Net "Net 3"
+                            (joined (portRef A (instanceRef D1))
+                            (portRef P2 (instanceRef F1)))
+                        )
+                        (Net "Net 46"
+                            (joined (portRef P1 (instanceRef R37))
+                            (portRef G (instanceRef Q7))
+                            (portRef P1 (instanceRef R36)))
+                        )
+                        (Net "Net 16"
+                            (joined (portRef 8 (instanceRef U1))
+                            (portRef P1 (instanceRef "Op-Amp to Pin 8"))
+                            (portRef "-" (instanceRef U3))
+                            (portRef OUTPUT (instanceRef U3))
+                            (portRef P1 (instanceRef "Op-Amp to Pin 8")))
+                        )
+                        (Net "Net 32"
+                            (joined (portRef P1 (instanceRef "Pin 10"))
+                            (portRef P1 (instanceRef R28))
+                            (portRef 10 (instanceRef U1))
+                            (portRef P1 (instanceRef R27))
+                            (portRef P1 (instanceRef "Pin 10")))
+                        )
+                        (Net "Net 21"
+                            (joined (portRef 2 (instanceRef J3))
+                            (portRef P2 (instanceRef R17)))
+                        )
+                        (Net "Net 50"
+                            (joined (portRef P1 (instanceRef R41))
+                            (portRef P1 (instanceRef R40))
+                            (portRef G (instanceRef Q9)))
+                        )
+                        (Net "Net 52"
+                            (joined (portRef P2 (instanceRef R40))
+                            (portRef 21 (instanceRef U1)))
+                        )
+                        (Net "Net 36"
+                            (joined (portRef P1 (instanceRef R30))
+                            (portRef 11 (instanceRef U1))
+                            (portRef P1 (instanceRef "Pin 11"))
+                            (portRef P1 (instanceRef "Pin 11"))
+                            (portRef P1 (instanceRef R29)))
+                        )
+                        (Net "Net 2"
+                            (joined (portRef P1 (instanceRef J1))
+                            (portRef P1 (instanceRef F1)))
+                        )
+                        (Net "Net 13"
+                            (joined (portRef 2 (instanceRef J11))
+                            (portRef D (instanceRef Q7)))
+                        )
+                        (Net "Net 9"
+                            (joined (portRef BOOT (instanceRef U2))
+                            (portRef P1 (instanceRef C9)))
+                        )
+                        (Net "Net 25"
+                            (joined (portRef A (instanceRef D14))
+                            (portRef 1 (instanceRef J2)))
+                        )
+                        (Net "Net 37"
+                            (joined (portRef P2 (instanceRef R32))
+                            (portRef 2 (instanceRef J19)))
+                        )
+                        (Net "Net 34"
+                            (joined (portRef A (instanceRef D16))
+                            (portRef 1 (instanceRef J19)))
+                        )
+                        (Net "Net 14"
+                            (joined (portRef 2 (instanceRef J9))
+                            (portRef D (instanceRef Q1)))
+                        )
+                        (Net "Net 23"
+                            (joined (portRef P2 (instanceRef R12))
+                            (portRef K (instanceRef D9)))
+                        )
+                        (Net "Net 31"
+                            (joined (portRef K (instanceRef D15))
+                            (portRef P2 (instanceRef R29)))
+                        )
+                        (Net "Net 38"
+                            (joined (portRef 1 (instanceRef J20))
+                            (portRef A (instanceRef D17)))
+                        )
+                        (Net GND
+                            (joined (portRef P2 (instanceRef R41))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef GND (instanceRef "0a8c98d5-f2cf-4857-bfea-08c8fcabc949"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P2 (instanceRef R26))
+                            (portRef P2 (instanceRef R35))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef K (instanceRef D2))
+                            (portRef 2 (instanceRef J15))
+                            (portRef 3 (instanceRef U1))
+                            (portRef 4 (instanceRef U1))
+                            (portRef P1 (instanceRef C2))
+                            (portRef P2 (instanceRef J1))
+                            (portRef P2 (instanceRef C8))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P2 (instanceRef Up))
+                            (portRef P2 (instanceRef R37))
+                            (portRef GND (instanceRef "512b48be-66b7-4267-bc97-f4cbbfcc8f5a"))
+                            (portRef P2 (instanceRef R39))
+                            (portRef P1 (instanceRef C5))
+                            (portRef S (instanceRef Q7))
+                            (portRef P2 (instanceRef R6))
+                            (portRef P2 (instanceRef C7))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef "V-" (instanceRef U3))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef GND (instanceRef U2))
+                            (portRef GND (instanceRef U5))
+                            (portRef S (instanceRef Q6))
+                            (portRef S (instanceRef Q8))
+                            (portRef P2 (instanceRef Down))
+                            (portRef S (instanceRef Q9))
+                            (portRef S (instanceRef Q1))
+                            (portRef P1 (instanceRef "Ground Rail"))
+                            (portRef GND (instanceRef "eed38bc3-7058-4aa7-8fae-e224e5c3fff8"))
+                            (portRef P2 (instanceRef R24))
+                            (portRef P1 (instanceRef "Ground Rail")))
+                        )
+                        (Net "Net 8"
+                            (joined (portRef SW (instanceRef U2))
+                            (portRef P2 (instanceRef L1))
+                            (portRef P2 (instanceRef C9)))
+                        )
+                        (Net "Net 17"
+                            (joined (portRef A (instanceRef D8))
+                            (portRef 1 (instanceRef J3)))
+                        )
+                        (Net "Net 26"
+                            (joined (portRef P2 (instanceRef R18))
+                            (portRef 2 (instanceRef J4)))
+                        )
+                        (Net "Net 48"
+                            (joined (portRef P1 (instanceRef R39))
+                            (portRef G (instanceRef Q8))
+                            (portRef P1 (instanceRef R38)))
+                        )
+                        (Net "Net 18"
+                            (joined (portRef A (instanceRef D2))
+                            (portRef P1 (instanceRef R25))
+                            (portRef 1 (instanceRef J15))
+                            (portRef 2 (instanceRef U1))
+                            (portRef P1 (instanceRef C8))
+                            (portRef P1 (instanceRef "9 V DC"))
+                            (portRef P1 (instanceRef "24 V DC"))
+                            (portRef K (instanceRef D1))
+                            (portRef EN (instanceRef U2))
+                            (portRef VIN (instanceRef U2))
+                            (portRef VI (instanceRef U5))
+                            (portRef P1 (instanceRef Down))
+                            (portRef P1 (instanceRef L1)))
+                        )
+                        (Net "Net 42"
+                            (joined (portRef P1 (instanceRef R6))
+                            (portRef P1 (instanceRef R1))
+                            (portRef G (instanceRef Q1)))
+                        )
+                        (Net "Net 45"
+                            (joined (portRef 19 (instanceRef U1))
+                            (portRef P2 (instanceRef R36)))
+                        )
+                        (Net "Net 4"
+                            (joined (portRef P1 (instanceRef "24 V AC"))
+                            (portRef 1 (instanceRef J13))
+                            (portRef 1 (instanceRef J9))
+                            (portRef 1 (instanceRef J11))
+                            (portRef 1 (instanceRef U1))
+                            (portRef P2 (instanceRef C2))
+                            (portRef 1 (instanceRef J12))
+                            (portRef 1 (instanceRef J10))
+                            (portRef P2 (instanceRef C5))
+                            (portRef P1 (instanceRef "24 V AC")))
+                        )
+                        (Net "Net 11"
+                            (joined (portRef 3 (instanceRef J15))
+                            (portRef P1 (instanceRef R23)))
+                        )
+                        (Net "Net 39"
+                            (joined (portRef 9 (instanceRef U1))
+                            (portRef P1 (instanceRef "Pin 9"))
+                            (portRef P1 (instanceRef R32))
+                            (portRef P1 (instanceRef "Pin 9"))
+                            (portRef P1 (instanceRef R31)))
+                        )
+                        (Net "Net 47"
+                            (joined (portRef 20 (instanceRef U1))
+                            (portRef P2 (instanceRef R38)))
+                        )
+                        (Net "Net 41"
+                            (joined (portRef P2 (instanceRef R34))
+                            (portRef 2 (instanceRef J20)))
+                        )
+                        (Net "Net 5"
+                            (joined (portRef P1 (instanceRef Up))
+                            (portRef "V+" (instanceRef U3))
+                            (portRef VO (instanceRef U5))
+                            (portRef P1 (instanceRef "5 V DC")))
+                        )
+                        (Net "Net 43"
+                            (joined (portRef 18 (instanceRef U1))
+                            (portRef P2 (instanceRef R2)))
+                        )
+                        (Net "Net 35"
+                            (joined (portRef K (instanceRef D16))
+                            (portRef P2 (instanceRef R31)))
+                        )
+                        (Net "Net 33"
+                            (joined (portRef P2 (instanceRef R30))
+                            (portRef 2 (instanceRef J18)))
+                        )
+                        (Net "Net 20"
+                            (joined (portRef 5 (instanceRef U1))
+                            (portRef P1 (instanceRef R11))
+                            (portRef P1 (instanceRef R17)))
+                        )
+                        (Net "Net 29"
+                            (joined (portRef P2 (instanceRef R28))
+                            (portRef 2 (instanceRef J2)))
+                        )
+                        (Net "Net 7"
+                            (joined (portRef 2 (instanceRef J13))
+                            (portRef D (instanceRef Q9)))
+                        )
+                        (Net "Net 49"
+                            (joined (portRef P2 (instanceRef R33))
+                            (portRef K (instanceRef D17)))
+                        )
+                        (Net "Net 24"
+                            (joined (portRef P1 (instanceRef R18))
+                            (portRef P1 (instanceRef R12))
+                            (portRef 6 (instanceRef U1)))
+                        )
+                        (Net "Net 28"
+                            (joined (portRef 17 (instanceRef U1))
+                            (portRef P2 (instanceRef R1)))
+                        )
+                        (Net "Net 10"
+                            (joined (portRef P1 (instanceRef R26))
+                            (portRef P2 (instanceRef R25))
+                            (portRef FB (instanceRef U2)))
+                        )
+                        (Net "Net 6"
+                            (joined (portRef 2 (instanceRef J12))
+                            (portRef D (instanceRef Q8)))
+                        )
+                        (Net "Net 19"
+                            (joined (portRef P2 (instanceRef R11))
+                            (portRef K (instanceRef D8)))
+                        )
+                        (Net "Net 44"
+                            (joined (portRef P1 (instanceRef R35))
+                            (portRef P1 (instanceRef R2))
+                            (portRef G (instanceRef Q6)))
+                        )
+                        (Net "Net 27"
+                            (joined (portRef K (instanceRef D14))
+                            (portRef P2 (instanceRef R27)))
+                        )
+                        (Net "Net 12"
+                            (joined (portRef P1 (instanceRef C7))
+                            (portRef "+" (instanceRef U3))
+                            (portRef P2 (instanceRef R23))
+                            (portRef P1 (instanceRef R24)))
+                        )
+                        (Net "Net 22"
+                            (joined (portRef 1 (instanceRef J4))
+                            (portRef A (instanceRef D9)))
+                        )
+                        (Net "Net 30"
+                            (joined (portRef A (instanceRef D15))
+                            (portRef 1 (instanceRef J18)))
+                        )
+                        (Net "Net 40"
+                            (joined (portRef P1 (instanceRef R34))
+                            (portRef 7 (instanceRef U1))
+                            (portRef P1 (instanceRef R33))
+                            (portRef P1 (instanceRef "Pin 7"))
+                            (portRef P1 (instanceRef "Pin 7")))
+                        )
+                    )
+                )
+            )
+        )
+        (design "Line Sorter"
+            (cellRef "Line Sorter_top" (libraryRef Main))
+        )
+)

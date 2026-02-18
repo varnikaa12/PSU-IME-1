@@ -1,0 +1,185 @@
+﻿*Reference,*Manufacturer Part number,*QTY,*Original,Description,Purchase Link
+"C2, C9","","2","","A generic fixed capacitor ideal for rapid circuit topology development. You can choose between polarized and non-polarized types, its symbol and the footprint will automatically adapt based on your selection. Supported options include standard SMD sizes for ceramic capacitors (e.g., 0402, 0603, 0805), SMD sizes for aluminum electrolytic capacitors, and through-hole footprints for polarized capacitors. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard capacitor values: 1.0pF 10pF 100pF 1000pF 0.01uF 0.1uF  1.0uF 10uF 100uF 1000uF 10,000uF 1.1pF 11pF 110pF 1100pF 1.2pF 12pF 120pF 1200pF 1.3pF 13pF 130pF 1300pF 1.5pF 15pF 150pF 1500pF 0.015uF 0.15uF 1.5uF 15uF 150uF 1500uF 1.6pF 16pF 160pF 1600pF 1.8pF 18pF 180pF 1800pF 2.0pF 20pF 200pF 2000pF 2.2pF 22pF 20pF 2200pF 0.022uF 0.22uF 2.2uF 22uF 220uF 2200uF 2.4pF 24pF 240pF 2400pF 2.7pF 27pF 270pF 2700pF 3.0pF 30pF 300pF 3000pF 3.3pF 33pF 330pF 3300pF 0.033uF 0.33uF 3.3uF 33uF 330uF 3300uF 3.6pF 36pF 360pF 3600pF 3.9pF 39pF 390pF 3900pF 4.3pF 43pF 430pF 4300pF 4.7pF 47pF 470pF 4700pF 0.047uF 0.47uF 4.7uF 47uF 470uF 4700uF 5.1pF 51pF 510pF 5100pF 5.6pF 56pF 560pF 5600pF 6.2pF 62pF 620pF 6200pF 6.8pF 68pF 680pF 6800pF 0.068uF 0.68uF 6.8uF 68uF 680uF 6800uF 7.5pF 75pF 750pF 7500pF 8.2pF 82pF 820pF 8200pF 9.1pF 91pF 910pF 9100pF #generics #CommonPartsLibrary",""
+"C5, C8","","2","","A generic fixed capacitor ideal for rapid circuit topology development. You can choose between polarized and non-polarized types, its symbol and the footprint will automatically adapt based on your selection. Supported options include standard SMD sizes for ceramic capacitors (e.g., 0402, 0603, 0805), SMD sizes for aluminum electrolytic capacitors, and through-hole footprints for polarized capacitors. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard capacitor values: 1.0pF 10pF 100pF 1000pF 0.01uF 0.1uF  1.0uF 10uF 100uF 1000uF 10,000uF 1.1pF 11pF 110pF 1100pF 1.2pF 12pF 120pF 1200pF 1.3pF 13pF 130pF 1300pF 1.5pF 15pF 150pF 1500pF 0.015uF 0.15uF 1.5uF 15uF 150uF 1500uF 1.6pF 16pF 160pF 1600pF 1.8pF 18pF 180pF 1800pF 2.0pF 20pF 200pF 2000pF 2.2pF 22pF 20pF 2200pF 0.022uF 0.22uF 2.2uF 22uF 220uF 2200uF 2.4pF 24pF 240pF 2400pF 2.7pF 27pF 270pF 2700pF 3.0pF 30pF 300pF 3000pF 3.3pF 33pF 330pF 3300pF 0.033uF 0.33uF 3.3uF 33uF 330uF 3300uF 3.6pF 36pF 360pF 3600pF 3.9pF 39pF 390pF 3900pF 4.3pF 43pF 430pF 4300pF 4.7pF 47pF 470pF 4700pF 0.047uF 0.47uF 4.7uF 47uF 470uF 4700uF 5.1pF 51pF 510pF 5100pF 5.6pF 56pF 560pF 5600pF 6.2pF 62pF 620pF 6200pF 6.8pF 68pF 680pF 6800pF 0.068uF 0.68uF 6.8uF 68uF 680uF 6800uF 7.5pF 75pF 750pF 7500pF 8.2pF 82pF 820pF 8200pF 9.1pF 91pF 910pF 9100pF #generics #CommonPartsLibrary",""
+"C7","","1","","A generic fixed capacitor ideal for rapid circuit topology development. You can choose between polarized and non-polarized types, its symbol and the footprint will automatically adapt based on your selection. Supported options include standard SMD sizes for ceramic capacitors (e.g., 0402, 0603, 0805), SMD sizes for aluminum electrolytic capacitors, and through-hole footprints for polarized capacitors. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard capacitor values: 1.0pF 10pF 100pF 1000pF 0.01uF 0.1uF  1.0uF 10uF 100uF 1000uF 10,000uF 1.1pF 11pF 110pF 1100pF 1.2pF 12pF 120pF 1200pF 1.3pF 13pF 130pF 1300pF 1.5pF 15pF 150pF 1500pF 0.015uF 0.15uF 1.5uF 15uF 150uF 1500uF 1.6pF 16pF 160pF 1600pF 1.8pF 18pF 180pF 1800pF 2.0pF 20pF 200pF 2000pF 2.2pF 22pF 20pF 2200pF 0.022uF 0.22uF 2.2uF 22uF 220uF 2200uF 2.4pF 24pF 240pF 2400pF 2.7pF 27pF 270pF 2700pF 3.0pF 30pF 300pF 3000pF 3.3pF 33pF 330pF 3300pF 0.033uF 0.33uF 3.3uF 33uF 330uF 3300uF 3.6pF 36pF 360pF 3600pF 3.9pF 39pF 390pF 3900pF 4.3pF 43pF 430pF 4300pF 4.7pF 47pF 470pF 4700pF 0.047uF 0.47uF 4.7uF 47uF 470uF 4700uF 5.1pF 51pF 510pF 5100pF 5.6pF 56pF 560pF 5600pF 6.2pF 62pF 620pF 6200pF 6.8pF 68pF 680pF 6800pF 0.068uF 0.68uF 6.8uF 68uF 680uF 6800uF 7.5pF 75pF 750pF 7500pF 8.2pF 82pF 820pF 8200pF 9.1pF 91pF 910pF 9100pF #generics #CommonPartsLibrary",""
+"D1, D14, D15, D16, D17, D8, D9","SS34","7","","40V 500mV@3A 3A SMA(DO-214AC) Schottky Diodes ROHS
+SS34
+SMB_L4.3-W3.6-LS5.4-RD
+LCSC Part Number: C2758511
+JLCPCB Part Class: Extended Part
+Manufactured by UMW(友台半导体) ",""
+"D2","SMBJ24A","1","","38.9V Clamp 15.5A Ipp Tvs Diode Surface Mount DO-214AA (SMBJ) #commonpartslibrary
+#circuitprotection
+#tvsdiode",""
+"Down","","1","","A generic fixed capacitor ideal for rapid circuit topology development. You can choose between polarized and non-polarized types, its symbol and the footprint will automatically adapt based on your selection. Supported options include standard SMD sizes for ceramic capacitors (e.g., 0402, 0603, 0805), SMD sizes for aluminum electrolytic capacitors, and through-hole footprints for polarized capacitors. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard capacitor values: 1.0pF 10pF 100pF 1000pF 0.01uF 0.1uF  1.0uF 10uF 100uF 1000uF 10,000uF 1.1pF 11pF 110pF 1100pF 1.2pF 12pF 120pF 1200pF 1.3pF 13pF 130pF 1300pF 1.5pF 15pF 150pF 1500pF 0.015uF 0.15uF 1.5uF 15uF 150uF 1500uF 1.6pF 16pF 160pF 1600pF 1.8pF 18pF 180pF 1800pF 2.0pF 20pF 200pF 2000pF 2.2pF 22pF 20pF 2200pF 0.022uF 0.22uF 2.2uF 22uF 220uF 2200uF 2.4pF 24pF 240pF 2400pF 2.7pF 27pF 270pF 2700pF 3.0pF 30pF 300pF 3000pF 3.3pF 33pF 330pF 3300pF 0.033uF 0.33uF 3.3uF 33uF 330uF 3300uF 3.6pF 36pF 360pF 3600pF 3.9pF 39pF 390pF 3900pF 4.3pF 43pF 430pF 4300pF 4.7pF 47pF 470pF 4700pF 0.047uF 0.47uF 4.7uF 47uF 470uF 4700uF 5.1pF 51pF 510pF 5100pF 5.6pF 56pF 560pF 5600pF 6.2pF 62pF 620pF 6200pF 6.8pF 68pF 680pF 6800pF 0.068uF 0.68uF 6.8uF 68uF 680uF 6800uF 7.5pF 75pF 750pF 7500pF 8.2pF 82pF 820pF 8200pF 9.1pF 91pF 910pF 9100pF #generics #CommonPartsLibrary",""
+"F1","05200101Z","1","","Fuse Block 10 A 600V 1 Circuit Cartridge Through Hole #CommonPartsLibrary #CircuitProtection #Fuse #FuseHolder",""
+"J1","691137710002","1","","Screw 5.0mm Straight Pin PCB Block Connector ROHS",""
+"J10, J11, J12, J13, J18, J19, J2, J20, J3, J4, J9","1730395","11","","2 Position Wire to Board Terminal Block Horizontal with Board 0.200"" (5.08mm) Through Hole #commonpartslibrary
+#connector
+#terminalblock
+#horizontal",""
+"J15","0022232031","1","","Connector Header Through Hole 3 position 0.100"" (2.54mm) #commonpartslibrary
+#connector
+#header
+#tht",""
+"L1","","1","","A generic fixed inductor for rapid developing circuit topology. *You can now change the footprint and 3D model at the top level anytime you want. This is the power of #generics",""
+"Q1, Q6, Q7, Q8, Q9","AO3400A","5","","30V 5.7A 26.5mΩ@10V,5.7A 1.4W 1.5V@250uA 1 N-channel SOT-23-3L MOSFETs ROHS
+AO3400A
+SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR
+LCSC Part Number: C347475
+JLCPCB Part Class: Extended Part
+Manufactured by UMW(友台半导体) ","https://lcsc.com/product-detail/Others_Youtai-Semiconductor-Co-Ltd-AO3400A-5-8A_C347475.html"
+"R1, R2, R36, R38, R40","","5","","A generic fixed resistor for rapid developing circuit topology. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard resistor values:
+1.0Ω 10Ω 100Ω 1.0kΩ 10kΩ 100kΩ 1.0MΩ
+1.1Ω 11Ω 110Ω 1.1kΩ 11kΩ 110kΩ 1.1MΩ
+1.2Ω 12Ω 120Ω 1.2kΩ 12kΩ 120kΩ 1.2MΩ
+1.3Ω 13Ω 130Ω 1.3kΩ 13kΩ 130kΩ 1.3MΩ
+1.5Ω 15Ω 150Ω 1.5kΩ 15kΩ 150kΩ 1.5MΩ
+1.6Ω 16Ω 160Ω 1.6kΩ 16kΩ 160kΩ 1.6MΩ
+1.8Ω 18Ω 180Ω 1.8KΩ 18kΩ 180kΩ 1.8MΩ
+2.0Ω 20Ω 200Ω 2.0kΩ 20kΩ 200kΩ 2.0MΩ
+2.2Ω 22Ω 220Ω 2.2kΩ 22kΩ 220kΩ 2.2MΩ
+2.4Ω 24Ω 240Ω 2.4kΩ 24kΩ 240kΩ 2.4MΩ
+2.7Ω 27Ω 270Ω 2.7kΩ 27kΩ 270kΩ 2.7MΩ
+3.0Ω 30Ω 300Ω 3.0KΩ 30KΩ 300KΩ 3.0MΩ
+3.3Ω 33Ω 330Ω 3.3kΩ 33kΩ 330kΩ 3.3MΩ
+3.6Ω 36Ω 360Ω 3.6kΩ 36kΩ 360kΩ 3.6MΩ
+3.9Ω 39Ω 390Ω 3.9kΩ 39kΩ 390kΩ 3.9MΩ
+4.3Ω 43Ω 430Ω 4.3kΩ 43KΩ 430KΩ 4.3MΩ
+4.7Ω 47Ω 470Ω 4.7kΩ 47kΩ 470kΩ 4.7MΩ
+5.1Ω 51Ω 510Ω 5.1kΩ 51kΩ 510kΩ 5.1MΩ
+5.6Ω 56Ω 560Ω 5.6kΩ 56kΩ 560kΩ 5.6MΩ
+6.2Ω 62Ω 620Ω 6.2kΩ 62KΩ 620KΩ 6.2MΩ
+6.8Ω 68Ω 680Ω 6.8kΩ 68kΩ 680kΩ 6.8MΩ
+7.5Ω 75Ω 750Ω 7.5kΩ 75kΩ 750kΩ 7.5MΩ
+8.2Ω 82Ω 820Ω 8.2kΩ 82kΩ 820kΩ 8.2MΩ
+9.1Ω 91Ω 910Ω 9.1kΩ 91kΩ 910kΩ 9.1MΩ
+
+#generics #CommonPartsLibrary",""
+"R11, R12, R18, R27, R28, R29, R30, R31, R32, R33, R34","","11","","A generic fixed resistor for rapid developing circuit topology. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard resistor values:
+1.0Ω 10Ω 100Ω 1.0kΩ 10kΩ 100kΩ 1.0MΩ
+1.1Ω 11Ω 110Ω 1.1kΩ 11kΩ 110kΩ 1.1MΩ
+1.2Ω 12Ω 120Ω 1.2kΩ 12kΩ 120kΩ 1.2MΩ
+1.3Ω 13Ω 130Ω 1.3kΩ 13kΩ 130kΩ 1.3MΩ
+1.5Ω 15Ω 150Ω 1.5kΩ 15kΩ 150kΩ 1.5MΩ
+1.6Ω 16Ω 160Ω 1.6kΩ 16kΩ 160kΩ 1.6MΩ
+1.8Ω 18Ω 180Ω 1.8KΩ 18kΩ 180kΩ 1.8MΩ
+2.0Ω 20Ω 200Ω 2.0kΩ 20kΩ 200kΩ 2.0MΩ
+2.2Ω 22Ω 220Ω 2.2kΩ 22kΩ 220kΩ 2.2MΩ
+2.4Ω 24Ω 240Ω 2.4kΩ 24kΩ 240kΩ 2.4MΩ
+2.7Ω 27Ω 270Ω 2.7kΩ 27kΩ 270kΩ 2.7MΩ
+3.0Ω 30Ω 300Ω 3.0KΩ 30KΩ 300KΩ 3.0MΩ
+3.3Ω 33Ω 330Ω 3.3kΩ 33kΩ 330kΩ 3.3MΩ
+3.6Ω 36Ω 360Ω 3.6kΩ 36kΩ 360kΩ 3.6MΩ
+3.9Ω 39Ω 390Ω 3.9kΩ 39kΩ 390kΩ 3.9MΩ
+4.3Ω 43Ω 430Ω 4.3kΩ 43KΩ 430KΩ 4.3MΩ
+4.7Ω 47Ω 470Ω 4.7kΩ 47kΩ 470kΩ 4.7MΩ
+5.1Ω 51Ω 510Ω 5.1kΩ 51kΩ 510kΩ 5.1MΩ
+5.6Ω 56Ω 560Ω 5.6kΩ 56kΩ 560kΩ 5.6MΩ
+6.2Ω 62Ω 620Ω 6.2kΩ 62KΩ 620KΩ 6.2MΩ
+6.8Ω 68Ω 680Ω 6.8kΩ 68kΩ 680kΩ 6.8MΩ
+7.5Ω 75Ω 750Ω 7.5kΩ 75kΩ 750kΩ 7.5MΩ
+8.2Ω 82Ω 820Ω 8.2kΩ 82kΩ 820kΩ 8.2MΩ
+9.1Ω 91Ω 910Ω 9.1kΩ 91kΩ 910kΩ 9.1MΩ
+
+#generics #CommonPartsLibrary",""
+"R17, R25, R26, R35, R37, R39, R41, R6","","8","","A generic fixed resistor for rapid developing circuit topology. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard resistor values:
+1.0Ω 10Ω 100Ω 1.0kΩ 10kΩ 100kΩ 1.0MΩ
+1.1Ω 11Ω 110Ω 1.1kΩ 11kΩ 110kΩ 1.1MΩ
+1.2Ω 12Ω 120Ω 1.2kΩ 12kΩ 120kΩ 1.2MΩ
+1.3Ω 13Ω 130Ω 1.3kΩ 13kΩ 130kΩ 1.3MΩ
+1.5Ω 15Ω 150Ω 1.5kΩ 15kΩ 150kΩ 1.5MΩ
+1.6Ω 16Ω 160Ω 1.6kΩ 16kΩ 160kΩ 1.6MΩ
+1.8Ω 18Ω 180Ω 1.8KΩ 18kΩ 180kΩ 1.8MΩ
+2.0Ω 20Ω 200Ω 2.0kΩ 20kΩ 200kΩ 2.0MΩ
+2.2Ω 22Ω 220Ω 2.2kΩ 22kΩ 220kΩ 2.2MΩ
+2.4Ω 24Ω 240Ω 2.4kΩ 24kΩ 240kΩ 2.4MΩ
+2.7Ω 27Ω 270Ω 2.7kΩ 27kΩ 270kΩ 2.7MΩ
+3.0Ω 30Ω 300Ω 3.0KΩ 30KΩ 300KΩ 3.0MΩ
+3.3Ω 33Ω 330Ω 3.3kΩ 33kΩ 330kΩ 3.3MΩ
+3.6Ω 36Ω 360Ω 3.6kΩ 36kΩ 360kΩ 3.6MΩ
+3.9Ω 39Ω 390Ω 3.9kΩ 39kΩ 390kΩ 3.9MΩ
+4.3Ω 43Ω 430Ω 4.3kΩ 43KΩ 430KΩ 4.3MΩ
+4.7Ω 47Ω 470Ω 4.7kΩ 47kΩ 470kΩ 4.7MΩ
+5.1Ω 51Ω 510Ω 5.1kΩ 51kΩ 510kΩ 5.1MΩ
+5.6Ω 56Ω 560Ω 5.6kΩ 56kΩ 560kΩ 5.6MΩ
+6.2Ω 62Ω 620Ω 6.2kΩ 62KΩ 620KΩ 6.2MΩ
+6.8Ω 68Ω 680Ω 6.8kΩ 68kΩ 680kΩ 6.8MΩ
+7.5Ω 75Ω 750Ω 7.5kΩ 75kΩ 750kΩ 7.5MΩ
+8.2Ω 82Ω 820Ω 8.2kΩ 82kΩ 820kΩ 8.2MΩ
+9.1Ω 91Ω 910Ω 9.1kΩ 91kΩ 910kΩ 9.1MΩ
+
+#generics #CommonPartsLibrary",""
+"R23, R24","","2","","A generic fixed resistor for rapid developing circuit topology. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard resistor values:
+1.0Ω 10Ω 100Ω 1.0kΩ 10kΩ 100kΩ 1.0MΩ
+1.1Ω 11Ω 110Ω 1.1kΩ 11kΩ 110kΩ 1.1MΩ
+1.2Ω 12Ω 120Ω 1.2kΩ 12kΩ 120kΩ 1.2MΩ
+1.3Ω 13Ω 130Ω 1.3kΩ 13kΩ 130kΩ 1.3MΩ
+1.5Ω 15Ω 150Ω 1.5kΩ 15kΩ 150kΩ 1.5MΩ
+1.6Ω 16Ω 160Ω 1.6kΩ 16kΩ 160kΩ 1.6MΩ
+1.8Ω 18Ω 180Ω 1.8KΩ 18kΩ 180kΩ 1.8MΩ
+2.0Ω 20Ω 200Ω 2.0kΩ 20kΩ 200kΩ 2.0MΩ
+2.2Ω 22Ω 220Ω 2.2kΩ 22kΩ 220kΩ 2.2MΩ
+2.4Ω 24Ω 240Ω 2.4kΩ 24kΩ 240kΩ 2.4MΩ
+2.7Ω 27Ω 270Ω 2.7kΩ 27kΩ 270kΩ 2.7MΩ
+3.0Ω 30Ω 300Ω 3.0KΩ 30KΩ 300KΩ 3.0MΩ
+3.3Ω 33Ω 330Ω 3.3kΩ 33kΩ 330kΩ 3.3MΩ
+3.6Ω 36Ω 360Ω 3.6kΩ 36kΩ 360kΩ 3.6MΩ
+3.9Ω 39Ω 390Ω 3.9kΩ 39kΩ 390kΩ 3.9MΩ
+4.3Ω 43Ω 430Ω 4.3kΩ 43KΩ 430KΩ 4.3MΩ
+4.7Ω 47Ω 470Ω 4.7kΩ 47kΩ 470kΩ 4.7MΩ
+5.1Ω 51Ω 510Ω 5.1kΩ 51kΩ 510kΩ 5.1MΩ
+5.6Ω 56Ω 560Ω 5.6kΩ 56kΩ 560kΩ 5.6MΩ
+6.2Ω 62Ω 620Ω 6.2kΩ 62KΩ 620KΩ 6.2MΩ
+6.8Ω 68Ω 680Ω 6.8kΩ 68kΩ 680kΩ 6.8MΩ
+7.5Ω 75Ω 750Ω 7.5kΩ 75kΩ 750kΩ 7.5MΩ
+8.2Ω 82Ω 820Ω 8.2kΩ 82kΩ 820kΩ 8.2MΩ
+9.1Ω 91Ω 910Ω 9.1kΩ 91kΩ 910kΩ 9.1MΩ
+
+#generics #CommonPartsLibrary",""
+"U1","X5521WV-2x13-C40D40-1196","1","","Pin Headers
+X5521WV-2x13-C40D40-1196
+HDR-TH_26P-P2.54-V-M-R2-C13-S2.54-2
+LCSC Part Number: C2883554
+JLCPCB Part Class: Extended Part
+Manufactured by XKB Connection(中国星坤) ",""
+"U2","TPS54302DDCR","1","","Buck Switching Regulator IC Positive Adjustable 0.596V 1 Output 3A SOT-23-6 Thin, TSOT-23-6 #CommonPartsLibrary #IntegratedCircuit #power-management #Voltage-regulator #Switching-regulator",""
+"U3","OPA340UA","1","","Single-Supply, Rail-to-Rail Operational Amplifiers Micro Amplifier™ Series 8-SOIC #CommonPartLibrary #IntegratedCircuits #Amplifiers #Instrumentation #OPAmp #BufferAmps #Linear #OPA340",""
+"U5","LM7805CT/NOPB","1","","Linear Voltage Regulator IC Positive 5V Fixed 1 Output 1A TO-220-3 #CommonPartsLibrary #IntegratedCircuit #PowerManagement #LinearRegulator #VoltageRegulator",""
+"Up","","1","","A generic fixed capacitor ideal for rapid circuit topology development. You can choose between polarized and non-polarized types, its symbol and the footprint will automatically adapt based on your selection. Supported options include standard SMD sizes for ceramic capacitors (e.g., 0402, 0603, 0805), SMD sizes for aluminum electrolytic capacitors, and through-hole footprints for polarized capacitors. 
+
+Save precious design time by seamlessly add more information to this part (value, footprint, etc.) as it becomes available.
+
+Standard capacitor values: 1.0pF 10pF 100pF 1000pF 0.01uF 0.1uF  1.0uF 10uF 100uF 1000uF 10,000uF 1.1pF 11pF 110pF 1100pF 1.2pF 12pF 120pF 1200pF 1.3pF 13pF 130pF 1300pF 1.5pF 15pF 150pF 1500pF 0.015uF 0.15uF 1.5uF 15uF 150uF 1500uF 1.6pF 16pF 160pF 1600pF 1.8pF 18pF 180pF 1800pF 2.0pF 20pF 200pF 2000pF 2.2pF 22pF 20pF 2200pF 0.022uF 0.22uF 2.2uF 22uF 220uF 2200uF 2.4pF 24pF 240pF 2400pF 2.7pF 27pF 270pF 2700pF 3.0pF 30pF 300pF 3000pF 3.3pF 33pF 330pF 3300pF 0.033uF 0.33uF 3.3uF 33uF 330uF 3300uF 3.6pF 36pF 360pF 3600pF 3.9pF 39pF 390pF 3900pF 4.3pF 43pF 430pF 4300pF 4.7pF 47pF 470pF 4700pF 0.047uF 0.47uF 4.7uF 47uF 470uF 4700uF 5.1pF 51pF 510pF 5100pF 5.6pF 56pF 560pF 5600pF 6.2pF 62pF 620pF 6200pF 6.8pF 68pF 680pF 6800pF 0.068uF 0.68uF 6.8uF 68uF 680uF 6800uF 7.5pF 75pF 750pF 7500pF 8.2pF 82pF 820pF 8200pF 9.1pF 91pF 910pF 9100pF #generics #CommonPartsLibrary",""
