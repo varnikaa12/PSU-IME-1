@@ -1,0 +1,12 @@
+1. Download the dataset from: https://www.kaggle.com/datasets/adikurniawan/color-dataset-for-color-recognition/data
+2. Extract the dataset into a folder named "dataset" in the project root.
+3. The "dataset" folder should contain subfolders for each color, e.g.:
+   dataset/
+     Red/
+       img1.jpg, img2.jpg...
+     Blue/
+       ...
+     Green/
+       ...
+4. Run "python train_model.py" to train the color recognition model.
+5. Run "python color_recognition.py" to start the live feed.
