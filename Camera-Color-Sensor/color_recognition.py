@@ -12,13 +12,16 @@ COLOR_MAP = {
 }
 
 def extract_features(img):
-    """Advanced color features: BGR Mean/Std, HSV Mean/Std."""
-    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    """
+    Advanced color features using CIELAB space.
+    CIELAB is perceptually uniform and better at separating Red/Violet.
+    """
+    lab_img = cv2.cvtColor(img, cv2.COLOR_BGR2Lab)
     mean_bgr = cv2.mean(img)[:3]
-    mean_hsv = cv2.mean(hsv_img)[:3]
+    mean_lab = cv2.mean(lab_img)[:3]
     std_bgr = np.std(img, axis=(0, 1))
-    std_hsv = np.std(hsv_img, axis=(0, 1))
-    return np.concatenate([mean_bgr, mean_hsv, std_bgr, std_hsv])
+    std_lab = np.std(lab_img, axis=(0, 1))
+    return np.concatenate([mean_bgr, mean_lab, std_bgr, std_lab])
 
 def main():
     # 1. Start Modbus Server (PC acts as Server/Slave)

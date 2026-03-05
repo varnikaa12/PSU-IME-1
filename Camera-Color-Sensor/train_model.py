@@ -8,23 +8,24 @@ import joblib
 
 def extract_features(img):
     """
-    Extracts advanced color features:
-    - Mean and Std Dev of BGR
-    - Mean and Std Dev of HSV (Better for lighting)
+    Extracts advanced color features using CIELAB color space.
+    CIELAB is perceptually uniform and better at separating Red/Violet.
+    - L: Lightness
+    - a: Green-Red axis
+    - b: Blue-Yellow axis
     """
-    # Convert to HSV
-    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    # Convert to CIELAB
+    lab_img = cv2.cvtColor(img, cv2.COLOR_BGR2Lab)
     
-    # Calculate means
+    # Calculate means and standard deviations for BGR and LAB
     mean_bgr = cv2.mean(img)[:3]
-    mean_hsv = cv2.mean(hsv_img)[:3]
+    mean_lab = cv2.mean(lab_img)[:3]
     
-    # Calculate standard deviations
     std_bgr = np.std(img, axis=(0, 1))
-    std_hsv = np.std(hsv_img, axis=(0, 1))
+    std_lab = np.std(lab_img, axis=(0, 1))
     
-    # Combine into a single feature vector
-    return np.concatenate([mean_bgr, mean_hsv, std_bgr, std_hsv])
+    # Combined feature vector (12 features total)
+    return np.concatenate([mean_bgr, mean_lab, std_bgr, std_lab])
 
 def load_dataset(dataset_path="dataset"):
     X = []
@@ -45,6 +46,7 @@ def load_dataset(dataset_path="dataset"):
             if img is None:
                 continue
             
+            # Extract CIELAB features
             features = extract_features(img)
             X.append(features)
             y.append(label)
@@ -56,13 +58,12 @@ def train():
     X, y, labels = load_dataset(dataset_path)
     
     if X is None or len(X) == 0:
-        print("Dataset not found or empty. Please check 'dataset_instructions.txt'.")
+        print("Dataset not found or empty.")
         return
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    print(f"\nTraining Random Forest on {len(X_train)} samples...")
-    # Random Forest is more robust than KNN
+    print(f"\nTraining Random Forest (CIELAB version) on {len(X_train)} samples...")
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
@@ -75,10 +76,10 @@ def train():
     model_data = {
         "model": model,
         "labels": labels,
-        "feature_version": "2.0" # Tracking for recognition script
+        "feature_version": "3.0 (CIELAB)" 
     }
     joblib.dump(model_data, "color_model.pkl")
-    print("\nAdvanced model saved as color_model.pkl")
+    print("\nCIELAB-based model saved as color_model.pkl")
 
 if __name__ == "__main__":
     train()
