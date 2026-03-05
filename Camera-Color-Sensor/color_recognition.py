@@ -4,8 +4,16 @@ import joblib
 import os
 from camera_utils import select_camera
 
+def extract_features(img):
+    """Must match the training script's feature extraction exactly."""
+    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    mean_bgr = cv2.mean(img)[:3]
+    mean_hsv = cv2.mean(hsv_img)[:3]
+    std_bgr = np.std(img, axis=(0, 1))
+    std_hsv = np.std(hsv_img, axis=(0, 1))
+    return np.concatenate([mean_bgr, mean_hsv, std_bgr, std_hsv])
+
 def main():
-    # Load model
     model_path = "color_model.pkl"
     if not os.path.exists(model_path):
         print(f"Model file '{model_path}' not found. Please run train_model.py first.")
@@ -14,11 +22,11 @@ def main():
     try:
         model_data = joblib.load(model_path)
         model = model_data["model"]
+        print(f"Loaded advanced model (Version: {model_data.get('feature_version', '1.0')})")
     except Exception as e:
         print(f"Error loading model: {e}")
         return
 
-    # Select camera
     try:
         camera_index = select_camera()
     except Exception as e:
@@ -30,23 +38,19 @@ def main():
         print("Error: Could not open camera.")
         return
 
-    print("Press 'q' (with the camera window focused) to quit.")
-
-    # Create window explicitly
-    window_name = "Color Recognition - Live Feed"
+    print("\nPress 'q' (with camera window focused) to quit.")
+    window_name = "Advanced Color Recognition - Live Feed"
     cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
     try:
         while True:
             ret, frame = cap.read()
-            if not ret:
-                print("Failed to grab frame.")
-                break
+            if not ret: break
 
             height, width, _ = frame.shape
             
-            # Define the box around the item in focus (center of the screen)
-            box_size = 50
+            # Larger box for better feature extraction
+            box_size = 150
             start_point = (width // 2 - box_size // 2, height // 2 - box_size // 2)
             end_point = (width // 2 + box_size // 2, height // 2 + box_size // 2)
             
@@ -56,48 +60,38 @@ def main():
             # Crop the focus area
             focus_area = frame[start_point[1]:end_point[1], start_point[0]:end_point[0]]
             
-            # Extract features (Mean BGR)
-            mean_color = cv2.mean(focus_area)[:3]
+            # Smooth area to reduce noise
+            focus_area_blurred = cv2.GaussianBlur(focus_area, (7, 7), 0)
             
             # Prediction
             try:
-                prediction = model.predict([mean_color])[0]
-                probabilities = model.predict_proba([mean_color])[0]
-                max_prob = np.max(probabilities)
-                certainty = max_prob * 100
+                features = extract_features(focus_area_blurred)
+                prediction = model.predict([features])[0]
                 
-                # Display results
+                # Confidence score (probability)
+                probabilities = model.predict_proba([features])[0]
+                class_index = list(model.classes_).index(prediction)
+                certainty = probabilities[class_index] * 100
+                
+                # Display Results
                 text = f"Color: {prediction} ({certainty:.1f}%)"
-                cv2.putText(frame, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+                cv2.putText(frame, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
 
-                # Draw a color patch for the detected color
+                # Color Patch (BGR for display)
+                mean_bgr = cv2.mean(focus_area_blurred)[:3]
                 patch_size = 50
                 patch = np.zeros((patch_size, patch_size, 3), dtype=np.uint8)
-                patch[:] = [int(c) for c in mean_color]
-                
-                # Place patch on top right
+                patch[:] = [int(c) for c in mean_bgr]
                 frame[10:10+patch_size, width-10-patch_size:width-10] = patch
                 cv2.rectangle(frame, (width-10-patch_size, 10), (width-10, 10+patch_size), (255, 255, 255), 1)
 
             except Exception as e:
-                cv2.putText(frame, "Recognition Error", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                cv2.putText(frame, f"Error: {str(e)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 1)
 
-            # Show live feed
             cv2.imshow(window_name, frame)
-
-            # Wait for 1ms and check for 'q'
-            key = cv2.waitKey(1) & 0xFF
-            if key == ord('q'):
-                print("'q' pressed. Exiting...")
+            if (cv2.waitKey(1) & 0xFF == ord('q')) or (cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1):
                 break
-            
-            # Handle window close button (X)
-            if cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1:
-                break
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
     finally:
-        print("Releasing resources...")
         cap.release()
         cv2.destroyAllWindows()
 

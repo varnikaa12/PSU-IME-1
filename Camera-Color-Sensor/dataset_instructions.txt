@@ -1,5 +1,5 @@
 1. Download the dataset from: https://www.kaggle.com/datasets/adikurniawan/color-dataset-for-color-recognition/data
-2. Extract the dataset into a folder named "dataset" in the project root.
+2. Extract the dataset into a folder named "training_dataset" in the project root.
 3. The "dataset" folder should contain subfolders for each color, e.g.:
    dataset/
      Red/
