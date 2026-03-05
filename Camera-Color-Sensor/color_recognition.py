@@ -2,10 +2,17 @@ import cv2
 import numpy as np
 import joblib
 import os
+from pyModbusTCP.server import ModbusServer, DataBank
 from camera_utils import select_camera
 
+# Shared Mapping (Matches CODESYS constants)
+COLOR_MAP = {
+    "Red": 1, "Green": 2, "Blue": 3, "Yellow": 4, "Orange": 5,
+    "Violet": 6, "Black": 7, "White": 8, "Grey": 9, "Brown": 10
+}
+
 def extract_features(img):
-    """Must match the training script's feature extraction exactly."""
+    """Advanced color features: BGR Mean/Std, HSV Mean/Std."""
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     mean_bgr = cv2.mean(img)[:3]
     mean_hsv = cv2.mean(hsv_img)[:3]
@@ -14,6 +21,20 @@ def extract_features(img):
     return np.concatenate([mean_bgr, mean_hsv, std_bgr, std_hsv])
 
 def main():
+    # 1. Start Modbus Server (PC acts as Server/Slave)
+    # RevPi will connect to this IP to read the colors.
+    MODBUS_PORT = 502
+    server = ModbusServer("0.0.0.0", port=MODBUS_PORT, no_block=True)
+    
+    try:
+        server.start()
+        print(f"MODBUS SERVER: Started on port {MODBUS_PORT} (PC/Local)")
+    except Exception as e:
+        print(f"Failed to start Modbus Server: {e}")
+        print("Note: On Windows, run as Admin for port 502, or change to a higher port.")
+        return
+
+    # 2. Load Model
     model_path = "color_model.pkl"
     if not os.path.exists(model_path):
         print(f"Model file '{model_path}' not found. Please run train_model.py first.")
@@ -22,11 +43,12 @@ def main():
     try:
         model_data = joblib.load(model_path)
         model = model_data["model"]
-        print(f"Loaded advanced model (Version: {model_data.get('feature_version', '1.0')})")
+        print(f"Loaded advanced model (Version: {model_data.get('feature_version', '2.0')})")
     except Exception as e:
         print(f"Error loading model: {e}")
         return
 
+    # 3. Select Camera
     try:
         camera_index = select_camera()
     except Exception as e:
@@ -39,7 +61,7 @@ def main():
         return
 
     print("\nPress 'q' (with camera window focused) to quit.")
-    window_name = "Advanced Color Recognition - Live Feed"
+    window_name = "Local Color Recognition - Modbus Server"
     cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
     try:
@@ -48,8 +70,6 @@ def main():
             if not ret: break
 
             height, width, _ = frame.shape
-            
-            # Larger box for better feature extraction
             box_size = 150
             start_point = (width // 2 - box_size // 2, height // 2 - box_size // 2)
             end_point = (width // 2 + box_size // 2, height // 2 + box_size // 2)
@@ -68,22 +88,26 @@ def main():
                 features = extract_features(focus_area_blurred)
                 prediction = model.predict([features])[0]
                 
-                # Confidence score (probability)
+                # Confidence score
                 probabilities = model.predict_proba([features])[0]
                 class_index = list(model.classes_).index(prediction)
                 certainty = probabilities[class_index] * 100
                 
-                # Display Results
-                text = f"Color: {prediction} ({certainty:.1f}%)"
-                cv2.putText(frame, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                # Update Modbus Holding Register 0
+                color_id = COLOR_MAP.get(prediction, 0)
+                server.data_bank.set_holding_registers(0, [color_id])
+                
+                # Visual Feedback
+                status_text = f"RELAYING: {prediction} (ID: {color_id})"
+                cv2.putText(frame, status_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+                cv2.putText(frame, f"Certainty: {certainty:.1f}%", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
 
-                # Color Patch (BGR for display)
+                # Color Patch
                 mean_bgr = cv2.mean(focus_area_blurred)[:3]
-                patch_size = 50
-                patch = np.zeros((patch_size, patch_size, 3), dtype=np.uint8)
+                patch = np.zeros((50, 50, 3), dtype=np.uint8)
                 patch[:] = [int(c) for c in mean_bgr]
-                frame[10:10+patch_size, width-10-patch_size:width-10] = patch
-                cv2.rectangle(frame, (width-10-patch_size, 10), (width-10, 10+patch_size), (255, 255, 255), 1)
+                frame[10:60, width-60:width-10] = patch
+                cv2.rectangle(frame, (width-60, 10), (width-10, 60), (255, 255, 255), 1)
 
             except Exception as e:
                 cv2.putText(frame, f"Error: {str(e)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 1)
@@ -92,6 +116,7 @@ def main():
             if (cv2.waitKey(1) & 0xFF == ord('q')) or (cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1):
                 break
     finally:
+        server.stop()
         cap.release()
         cv2.destroyAllWindows()
 
