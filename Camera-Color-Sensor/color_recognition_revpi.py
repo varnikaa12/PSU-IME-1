@@ -105,7 +105,7 @@ def main():
                 
                 # Update Modbus Holding Register 0
                 color_id = COLOR_MAP.get(prediction, 0)
-                db.set_input_registers(0, [color_id]) # Write to address 0
+                server.data_bank.set_input_registers(0, [color_id]) # Write to address 0
                 
                 # Visual Feedback
                 status_text = f"RELAYING: {prediction} (ID: {color_id})"
