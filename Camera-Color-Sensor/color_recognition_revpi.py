@@ -1,3 +1,5 @@
+from http import server
+
 import cv2
 import numpy as np
 import joblib
@@ -104,11 +106,12 @@ def main():
                 certainty = probabilities[class_index] * 100
                 
                 # Update Modbus Holding Register 0
-                color_id = COLOR_MAP.get(prediction, 0)
-                server.data_bank.set_holding_registers(0, [color_id]) # Write to address 0
-                
+                bit_index = COLOR_MAP.get(prediction, -1)
+                register_value = (1 << bit_index) if bit_index >= 0 else 0  # shift 1 into the correct bit position
+                server.data_bank.set_holding_registers(0, [register_value])
+                                
                 # Visual Feedback
-                status_text = f"RELAYING: {prediction} (ID: {color_id})"
+                status_text = f"RELAYING: {prediction} (Bit: {bit_index}, Val: {register_value})"
                 cv2.putText(frame, status_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
                 cv2.putText(frame, f"Certainty: {certainty:.1f}%", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
 
