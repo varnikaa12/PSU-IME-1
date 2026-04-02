@@ -108,7 +108,7 @@ def main():
                 # Update Modbus Holding Register 0
                 bit_index = COLOR_MAP.get(prediction, -1)
                 register_value = (1 << bit_index) if bit_index >= 0 else 0  # shift 1 into the correct bit position
-                server.data_bank.set_holding_registers(1, [register_value])
+                server.data_bank.set_holding_registers(0, [register_value])
                                 
                 # Visual Feedback
                 status_text = f"RELAYING: {prediction} (Bit: {bit_index}, Val: {register_value})"
