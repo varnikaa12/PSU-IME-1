@@ -9,16 +9,16 @@ from camera_utils import select_camera
 # Color to Integer Mapping for CODESYS
 # Ensure these match your Ladder Logic constants
 COLOR_MAP = {
-    "Red": 1,
-    "Green": 2,
-    "Blue": 3,
-    "Yellow": 4,
-    "Orange": 5,
-    "Violet": 6,
-    "Black": 7,
-    "White": 8,
-    "Grey": 9,
-    "Brown": 10
+    "red": 1,
+    "green": 2,
+    "blue": 3,
+    "yellow": 4,
+    "orange": 5,
+    "violet": 6,
+    "black": 7,
+    "white": 8,
+    "grey": 9,
+    "brown": 10
 }
 
 def extract_features(img):
@@ -34,8 +34,9 @@ def main():
     # 1. Start Modbus Server (PC IP, Port 502)
     # Note: On Windows, you might need to run as Admin to use port 502, 
     # or use a higher port like 1502 if 502 is blocked.
-    MODBUS_PORT = 502
-    server = ModbusServer("0.0.0.0", port=MODBUS_PORT, no_block=True)
+    MODBUS_PORT = 1502
+    server = ModbusServer("127.0.0.1", port=MODBUS_PORT, no_block=True)
+    db = DataBank()
     
     try:
         server.start()
@@ -100,7 +101,7 @@ def main():
                 
                 # Update Modbus Holding Register 0
                 color_id = COLOR_MAP.get(prediction, 0)
-                DataBank.set_words(0, [color_id]) # Write to address 0
+                db.set_input_registers(0, [color_id]) # Write to address 0
                 
                 # Visual Feedback
                 status_text = f"RELAYING: {prediction} (ID: {color_id})"
@@ -127,3 +128,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
