@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import joblib
 import os
-import threading
 from pyModbusTCP.server import ModbusServer, DataBank
 from camera_utils import select_camera
 
@@ -23,7 +22,7 @@ COLOR_MAP = {
 
 def extract_features(img):
     """Advanced color features: BGR Mean/Std, HSV Mean/Std."""
-    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2Lab)
     mean_bgr = cv2.mean(img)[:3]
     mean_hsv = cv2.mean(hsv_img)[:3]
     std_bgr = np.std(img, axis=(0, 1))
@@ -85,8 +84,13 @@ def main():
             start_point = (width // 2 - box_size // 2, height // 2 - box_size // 2)
             end_point = (width // 2 + box_size // 2, height // 2 + box_size // 2)
             
+            # Draw the box
             cv2.rectangle(frame, start_point, end_point, (0, 255, 0), 2)
+            
+            # Crop the focus area
             focus_area = frame[start_point[1]:end_point[1], start_point[0]:end_point[0]]
+            
+            # Smooth area to reduce noise
             focus_area_blurred = cv2.GaussianBlur(focus_area, (7, 7), 0)
             
             # Prediction

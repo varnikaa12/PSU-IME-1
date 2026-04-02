@@ -7,8 +7,16 @@ from camera_utils import select_camera
 
 # Shared Mapping (Matches CODESYS constants)
 COLOR_MAP = {
-    "Red": 1, "Green": 2, "Blue": 3, "Yellow": 4, "Orange": 5,
-    "Violet": 6, "Black": 7, "White": 8, "Grey": 9, "Brown": 10
+    "red": 1,
+    "green": 2,
+    "blue": 3,
+    "yellow": 4,
+    "orange": 5,
+    "violet": 6,
+    "black": 7,
+    "white": 8,
+    "grey": 9,
+    "brown": 10
 }
 
 def extract_features(img):
