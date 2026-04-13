@@ -2,50 +2,51 @@
 #include <ESP32Servo.h>
 #include <AccelStepper.h>
 
-// PIN stuff 
+// --- PIN DEFINITIONS ---
 const int DISTANCE_SWITCH = 4;
 const int SERVO_1_PIN = 18; // White Gate
 const int SERVO_2_PIN = 19; // Red Gate
 const int SERVO_3_PIN = 22; // Blue Gate
 
-// CALIBRATION - need to adjust these based on actual measurements 
-const int CLICKS_TO_WHITE = 50;  // num Clicks from camera to Gate 1
-const int CLICKS_TO_RED = 100;   // num Clicks from camera to Gate 2
-const int CLICKS_TO_BLUE = 150;  // num Clicks from camera to Gate 3
+
+
+// --- CALIBRATION (Adjust these!) ---
+const int CLICKS_TO_WHITE = 500;  // Clicks from camera to Gate 1
+const int CLICKS_TO_RED = 800;   // Clicks from camera to Gate 2
+const int CLICKS_TO_BLUE = 1200;  // Clicks from camera to Gate 3
 
 const int GATE_CLOSED = 0;
 const int GATE_OPEN = 126;       // 70% of 180 degrees
 const unsigned long GATE_HOLD_TIME = 1000; // Time (ms) gate stays open
 
-//  OBJECTS 
+// --- HARDWARE OBJECTS ---
 AccelStepper beltStepper(1, 14, 12); // (Type:Driver, StepPin, DirPin)
 Servo gateWhite;
 Servo gateRed;
 Servo gateBlue;
 
-// TRACKING VARIABLES 
-// 'volatile' tells the ESP32 this variable changes in the background (via interrupt)
+// --- TRACKING VARIABLES ---
 volatile unsigned long totalClicks = 0; 
 
-// Struct to define a tracked puck (adding in queue for later))
+// struct to define a tracked puck
 struct TrackedPuck {
   char color;
   unsigned long targetClick;
 };
 
-// A queue to hold up (say 10 for now) pucks currently on the belt
+// A queue to hold ( 10 ) pucks currently on the belt
 const int MAX_PUCKS = 10;
 TrackedPuck puckQueue[MAX_PUCKS];
 int activePucks = 0;
 
-// Variables to handle closing the gates (after certain amt of time)
+// Variables to handle closing the gates non-blockingly
 unsigned long gateWhiteCloseTime = 0;
 unsigned long gateRedCloseTime = 0;
 unsigned long gateBlueCloseTime = 0;
 
 
-// INTERRUPT SERVICE ROUTINE 
-// This runs instantly every time the switch clicks
+// --- INTERRUPT SERVICE ROUTINE ---
+// This runs automatically every time the switch clicks
 void IRAM_ATTR countClicks() {
   totalClicks++;
 }
@@ -53,36 +54,42 @@ void IRAM_ATTR countClicks() {
 void setup() {
   Serial.begin(115200);
 
-  // Setup Distance Switch Interrupt
+  
+
+  // Distance Switch Interrupt
   pinMode(DISTANCE_SWITCH, INPUT_PULLDOWN);
   attachInterrupt(digitalPinToInterrupt(DISTANCE_SWITCH), countClicks, RISING);
 
-  // Setup Stepper (XY42STH34-0354A)
+  // Stepper (XY42STH34-0354A)
   beltStepper.setMaxSpeed(1000); 
   beltStepper.setSpeed(600); // Constant running speed
+  //TODO need to add stop for when smth goes under camera
+  //   counting clicks will stop and everything will essentially just pause (so just stop clicks or more too.. need to check) 
+  // -- how long does camera need to make its decision?
 
-  // Setup Servos (Adafruit 169 limits)
+  // Servos 
   gateWhite.attach(SERVO_1_PIN, 500, 2400);
   gateRed.attach(SERVO_2_PIN, 500, 2400);
   gateBlue.attach(SERVO_3_PIN, 500, 2400);
   
-  // Initializing gates to closed
+  // Initialize gates to closed
   gateWhite.write(GATE_CLOSED);
   gateRed.write(GATE_CLOSED);
   gateBlue.write(GATE_CLOSED);
 }
 
 void loop() {
-  // KEEP THE BELT MOVING //for this, it needs to stop under the camera for color sensing
-  //todo change
+
+
+  // KEEP THE BELT MOVING
   beltStepper.runSpeed();
 
-  // CHECK FOR REVPI COMMANDS for puck info
+  // CHECK FOR REVPI COMMANDS
   if (Serial.available() > 0) {
     char cmd = Serial.read();
     
     if ((cmd == 'W' || cmd == 'R' || cmd == 'B') && activePucks < MAX_PUCKS) {
-      // Calculate where this specific puck needs to go
+      // see where this specific puck needs to go
       unsigned long target = 0;
       if (cmd == 'W') target = totalClicks + CLICKS_TO_WHITE;
       if (cmd == 'R') target = totalClicks + CLICKS_TO_RED;
@@ -93,11 +100,11 @@ void loop() {
       puckQueue[activePucks].targetClick = target;
       activePucks++;
       
-      Serial.println("Puck Added to Queue");
+      Serial.println("Puck Added to Queue!");
     }
   }
 
-  //  CHECK IF ANY PUCK HAS REACHED ITS GATE
+  // CHECK IF ANY PUCK HAS REACHED ITS GATE
   for (int i = 0; i < activePucks; i++) {
     if (totalClicks >= puckQueue[i].targetClick) {
       
@@ -115,16 +122,16 @@ void loop() {
         gateBlueCloseTime = millis() + GATE_HOLD_TIME;
       }
 
-      // Remove puck from list w shift down
+      // Remove the puck from the list by shifting the rest down
       for (int j = i; j < activePucks - 1; j++) {
         puckQueue[j] = puckQueue[j + 1];
       }
       activePucks--;
-      i--; // Adjust index since we shifted array
+      i--; 
     }
   }
 
-  // CLOSE GATES after time 
+  // CLOSE GATES IF THEIR TIMERS ARE UP
   unsigned long currentTime = millis();
   
   if (gateWhiteCloseTime > 0 && currentTime >= gateWhiteCloseTime) {
