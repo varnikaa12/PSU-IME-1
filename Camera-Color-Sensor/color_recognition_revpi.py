@@ -10,16 +10,16 @@ from camera_utils import select_camera
 # Color to Integer Mapping for CODESYS
 # Ensure these match your Ladder Logic constants
 COLOR_MAP = {
-    "red": 1,
-    "green": 2,
+    "red": 2,
+    "green": 0,
     "blue": 3,
-    "yellow": 4,
-    "orange": 5,
-    "violet": 6,
-    "black": 7,
-    "white": 8,
-    "grey": 9,
-    "brown": 10
+    "yellow": 0,
+    "orange": 0,
+    "violet": 0,
+    "black": 0,
+    "white": 1,
+    "grey": 0,
+    "brown": 0
 }
 
 def extract_features(img):
@@ -67,14 +67,14 @@ def main():
         print(e)
         return
 
-    cap = cv2.VideoCapture(camera_index, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(camera_index)
     if not cap.isOpened():
         print("Error: Could not open camera.")
         return
 
-    print("\nPress 'q' (with camera window focused) to quit.")
-    window_name = "RevPi Connected Color Sensor"
-    cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+    #  print("\nPress 'q' (with camera window focused) to quit.")
+    #  window_name = "RevPi Connected Color Sensor"
+    #  cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
     try:
         while True:
@@ -109,11 +109,12 @@ def main():
                 bit_index = COLOR_MAP.get(prediction, -1)
                 register_value = (1 << bit_index) if bit_index >= 0 else 0  # shift 1 into the correct bit position
                 server.data_bank.set_holding_registers(0, [register_value])
+                print(register_value)
                                 
                 # Visual Feedback
-                status_text = f"RELAYING: {prediction} (Bit: {bit_index}, Val: {register_value})"
-                cv2.putText(frame, status_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-                cv2.putText(frame, f"Certainty: {certainty:.1f}%", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
+                # status_text = f"RELAYING: {prediction} (Bit: {bit_index}, Val: {register_value})"
+                # cv2.putText(frame, status_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+                # cv2.putText(frame, f"Certainty: {certainty:.1f}%", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
 
                 # Color Patch
                 mean_bgr = cv2.mean(focus_area_blurred)[:3]
@@ -123,15 +124,17 @@ def main():
                 cv2.rectangle(frame, (width-60, 10), (width-10, 60), (255, 255, 255), 1)
 
             except Exception as e:
-                cv2.putText(frame, f"Error: {str(e)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 1)
+                #  cv2.putText(frame, f"Error: {str(e)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 1)
+                print(f"{str(e)}")
+                pass
 
-            cv2.imshow(window_name, frame)
-            if (cv2.waitKey(1) & 0xFF == ord('q')) or (cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1):
-                break
+            #  cv2.imshow(window_name, frame)
+            #  if (cv2.waitKey(1) & 0xFF == ord('q')) or (cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1):
+                #  break
     finally:
         server.stop()
         cap.release()
-        cv2.destroyAllWindows()
+        # cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()

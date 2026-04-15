@@ -22,7 +22,7 @@ def get_available_cameras():
     system_names = get_camera_names_win()
     
     while True:
-        cap = cv2.VideoCapture(index, cv2.CAP_DSHOW)
+        cap = cv2.VideoCapture(index)
         if not cap.isOpened():
             break
         
