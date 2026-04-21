@@ -115,7 +115,7 @@ void setup() {
 
   // Stepper setup
   pinMode(STEPPER_ENABLE_PIN, OUTPUT);
-  digitalWrite(STEPPER_ENABLE_PIN, LOW);
+  digitalWrite(STEPPER_ENABLE_PIN, HIGH);
   beltStepper.setMaxSpeed(1000);
   beltStepper.setSpeed(600);
 
