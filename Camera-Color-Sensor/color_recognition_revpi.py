@@ -72,10 +72,6 @@ def main():
         print("Error: Could not open camera.")
         return
 
-    #  print("\nPress 'q' (with camera window focused) to quit.")
-    #  window_name = "RevPi Connected Color Sensor"
-    #  cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
-
     try:
         while True:
             ret, frame = cap.read()
@@ -107,14 +103,8 @@ def main():
                 
                 # Update Modbus Holding Register 0
                 bit_index = COLOR_MAP.get(prediction, -1)
-                register_value = (1 << bit_index) if bit_index >= 0 else 0  # shift 1 into the correct bit position
-                server.data_bank.set_holding_registers(0, [register_value])
-                print(register_value)
-                                
-                # Visual Feedback
-                # status_text = f"RELAYING: {prediction} (Bit: {bit_index}, Val: {register_value})"
-                # cv2.putText(frame, status_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-                # cv2.putText(frame, f"Certainty: {certainty:.1f}%", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1)
+                server.data_bank.set_holding_registers(0, [bit_index])
+                print(bit_index)
 
                 # Color Patch
                 mean_bgr = cv2.mean(focus_area_blurred)[:3]
@@ -124,17 +114,12 @@ def main():
                 cv2.rectangle(frame, (width-60, 10), (width-10, 60), (255, 255, 255), 1)
 
             except Exception as e:
-                #  cv2.putText(frame, f"Error: {str(e)}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 1)
                 print(f"{str(e)}")
                 pass
 
-            #  cv2.imshow(window_name, frame)
-            #  if (cv2.waitKey(1) & 0xFF == ord('q')) or (cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1):
-                #  break
     finally:
         server.stop()
         cap.release()
-        # cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
