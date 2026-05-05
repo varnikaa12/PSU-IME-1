@@ -19733,7 +19733,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "B3B-XH-ALFSN"
+		(property "Value" "Switch"
 			(at 80.01 91.4399 0)
 			(effects
 				(font
